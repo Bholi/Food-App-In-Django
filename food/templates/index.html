@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <h1>This is a homepage</h1>
+    {% for i in foods %}
+    <div class="row">
+        <div class="col-md-3 offset-md-2 ">
+            <img src="{{i.image}}" height="150px" class="card">
+        </div>
+        <div class="col-md-4">
+            <h3>{{i.name}}</h3>
+            <h5>{{i.description}}</h5>
+            <h6>{{i.price}}</h6>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'detail' i.id %}"><button class="btn btn-success">Details</button></a>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+  
